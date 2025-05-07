@@ -33,9 +33,8 @@ classifiers = [
 requires-python = ">=3.5"
 dependencies = [
     "click",
-    "jinja2>=2",
-    "textx>=2",
-    "textx-gen-coloring>=0.2.0",
+    "textx-jinja",
+    "textx",
 ]
 
 [project.urls]
