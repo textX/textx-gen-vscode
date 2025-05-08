@@ -9,6 +9,10 @@ from textx import generator, language_descriptions
 
 from textxjinja import textx_jinja_generator
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 @generator("textX", "vscode")
 def vscode_gen(
@@ -78,4 +82,4 @@ def create_vsix(vsix_file, tmp_folder):
                 arcname = file_path.relative_to(tmp_folder)
                 zipf.write(file_path, arcname)
 
-    print(f"Created {vsix_file}")
+    logger.info("Created %s", vsix_file)
