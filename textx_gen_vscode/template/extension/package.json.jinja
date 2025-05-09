@@ -28,6 +28,16 @@
       }
     {%- if loop.index != languages|length -%},{%- endif %}
     {% endfor %}
+    ],
+    "grammars": [
+    {% for lang in languages %}
+      {
+        "language": "{{lang.name|lower}}",
+        "scopeName": "source.{{lang.name|lower}}",
+        "path": "syntaxes/{{lang.name|lower}}.json"
+      }
+    {%- if loop.index != languages|length -%},{%- endif %}
+    {% endfor %}
     ]
   },
   "scripts": {

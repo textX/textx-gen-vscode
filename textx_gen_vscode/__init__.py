@@ -1,4 +1,5 @@
 import os
+import logging
 import sys
 import tempfile
 import zipfile
@@ -6,10 +7,9 @@ from pathlib import Path
 
 import click
 from textx import generator, language_descriptions
-
+from textx_gen_coloring.generators import generate_textmate_syntax
 from textxjinja import textx_jinja_generator
 
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -26,6 +26,7 @@ def vscode_gen(
     version="0.1.0",
     repository="https://github.com/textX/textX-LS",
     description="textX DSL",
+    skip_keywords=False
 ):
     """Generating VS Code extension for installed textX projects."""
     if not project_name:
@@ -48,6 +49,18 @@ def vscode_gen(
         textx_jinja_generator(template_folder, tmpdirname,
                               context=context,
                               overwrite=overwrite)
+
+        # Generate syntax highlighting
+        syntaxes_path = Path(tmpdirname) / "extension" / "syntaxes"
+        os.makedirs(syntaxes_path, exist_ok=True)
+        for lang in languages:
+            lang_name = lang.name.lower()
+            lang_syntax_path = syntaxes_path / f"{lang_name}.json"
+            lang_syntax_path.write_text(
+                generate_textmate_syntax(
+                    lang.metamodel, lang_name, skip_keywords=skip_keywords
+                )
+            )
 
         create_vsix(output_path, tmpdirname)
 
