@@ -1,6 +1,6 @@
 [project]
 name = "textx-gen-vscode"
-version = "0.2.1"
+version = "0.2.2"
 description = "A VS Code extension generator"
 authors = [
     {name = "Daniel Elero", email = "danixeee@gmail.com"},
@@ -35,6 +35,7 @@ dependencies = [
     "click",
     "textx-jinja",
     "textx",
+    "textx-gen-coloring",
 ]
 
 [project.urls]

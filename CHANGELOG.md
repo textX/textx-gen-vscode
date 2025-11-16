@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [Unreleased]
 
+## [0.2.2] - 2025-11-16
+
+### Fixed
+- Restored dependency to textx-gen-coloring.
+
 
 ## [0.2.1] - 2025-05-09
 
