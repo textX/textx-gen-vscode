@@ -7,6 +7,7 @@ from pathlib import Path
 
 import click
 from textx import generator, language_descriptions
+from textx.registration import GeneratorParam
 from textx_gen_coloring.generators import generate_textmate_syntax
 from textxjinja import textx_jinja_generator
 
@@ -14,14 +15,21 @@ from textxjinja import textx_jinja_generator
 logger = logging.getLogger(__name__)
 
 
-@generator("textX", "vscode")
+@generator("textX", "vscode", [
+    GeneratorParam("project_name", "The name of the project used in vsix"),
+    GeneratorParam("published", "The published of the vsix", False),
+    GeneratorParam("version", "Version of the vsix", False),
+    GeneratorParam("repository", "Git repository of the extension", False),
+    GeneratorParam("description", "The description of the extension", False),
+    GeneratorParam("skip_keywords", "Should keyword processing be done", False),
+])
 def vscode_gen(
     _metamodel,
     _model,
-    output_path="",
-    overwrite=False,
-    _debug=False,
-    project_name=None,
+    output_path,
+    overwrite,
+    _debug,
+    project_name,
     publisher="textX",
     version="0.1.0",
     repository="https://github.com/textX/textX-LS",
@@ -29,14 +37,15 @@ def vscode_gen(
     skip_keywords=False
 ):
     """Generating VS Code extension for installed textX projects."""
-    if not project_name:
-        click.echo('\nError: Missing option: "--project_name".')
-        sys.exit(1)
-
     template_folder = Path(os.path.dirname(__file__)) / 'template'
 
     with tempfile.TemporaryDirectory() as tmpdirname:
         languages = _get_languages_by_project_name(project_name)
+        if not languages:
+            click.echo(f'\nError: No languages found for project "{project_name}".'
+                        '\nCheck if the project exists in the current environment.')
+            sys.exit(1)
+
         context = {
             'project_name': project_name,
             'publisher': publisher,
@@ -61,6 +70,9 @@ def vscode_gen(
                     lang.metamodel, lang_name, skip_keywords=skip_keywords
                 )
             )
+
+        if output_path is None:
+            output_path = f"{project_name}-{version}.vsix"
 
         create_vsix(output_path, tmpdirname)
 
