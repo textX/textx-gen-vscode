@@ -2235,7 +2235,7 @@ wheels = [
 
 [[package]]
 name = "textx"
-version = "4.2.3"
+version = "4.3.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version >= '3.11'",
@@ -2248,9 +2248,9 @@ dependencies = [
     { name = "importlib-metadata", version = "8.5.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.8.*'" },
     { name = "importlib-metadata", version = "8.7.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.9.*'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a7/23/f8a1f8ea7d5e96a5b89a3d5da823f1b5aaa9e94f1995468a71a9cb146583/textx-4.2.3.tar.gz", hash = "sha256:5c503fe335b24bc113c21cf20bfec9a174680cf95bb651dea8f90c27d305d4c8", size = 2136790, upload-time = "2025-10-09T11:53:49.415Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f0/fe/1cec25321efa564257bcad2fca7da8d21b2beb826b32013bc8f85e67ae64/textx-4.3.0.tar.gz", hash = "sha256:0facac8029ad124ef21e5838dd8eb67f10129efcee96ea3548f5fd62428a9880", size = 2224357, upload-time = "2025-11-25T03:44:55.361Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5e/f4/e748c6781318aa9fef477c66d4dbd378b28a0e5ea73320cdcf630f755fe5/textx-4.2.3-py3-none-any.whl", hash = "sha256:dc533d34809408fd7152f499fc97609ba7615f61a9e0ebcc76016a0929be5979", size = 67728, upload-time = "2025-10-09T11:53:46.816Z" },
+    { url = "https://files.pythonhosted.org/packages/53/ae/27c651f06e0a9b425779cdc6d3463586e4f63f0c0365585120b4a539cba1/textx-4.3.0-py3-none-any.whl", hash = "sha256:261535f7e2de1529604026d58bf7dae9e40788644def4d033ca781680fa5dae7", size = 68560, upload-time = "2025-11-25T03:44:48.288Z" },
 ]
 
 [[package]]
@@ -2266,7 +2266,7 @@ dependencies = [
     { name = "jinja2", version = "3.0.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.6.*'" },
     { name = "jinja2", version = "3.1.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.7'" },
     { name = "textx", version = "3.1.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.8'" },
-    { name = "textx", version = "4.2.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
+    { name = "textx", version = "4.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/b9/d5/a41b086e823beff44d4ebc3325d57319774ab3b5c38c637764cd20aaff47/textx_gen_coloring-0.2.0.tar.gz", hash = "sha256:d58f3c6deac0e2eb0992724c65ab395559a4940d0647301bc916ee96c4042a95", size = 10452, upload-time = "2025-04-29T19:50:19.332Z" }
 wheels = [
@@ -2275,7 +2275,7 @@ wheels = [
 
 [[package]]
 name = "textx-gen-vscode"
-version = "0.2.2"
+version = "0.3.0"
 source = { editable = "." }
 dependencies = [
     { name = "click", version = "7.1.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.6'" },
@@ -2283,16 +2283,16 @@ dependencies = [
     { name = "click", version = "8.1.8", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.7' and python_full_version < '3.10'" },
     { name = "click", version = "8.3.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "textx", version = "3.1.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.8'" },
-    { name = "textx", version = "4.2.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
+    { name = "textx", version = "4.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
     { name = "textx-gen-coloring" },
     { name = "textx-jinja", version = "0.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.8'" },
     { name = "textx-jinja", version = "0.4.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
-    { name = "textx-lang-questionnaire" },
 ]
 
 [package.dev-dependencies]
 ci = [
     { name = "bandit" },
+    { name = "coverage" },
     { name = "pytest" },
     { name = "pytest-azurepipelines" },
     { name = "pytest-cov" },
@@ -2341,33 +2341,33 @@ requires-dist = [
     { name = "textx" },
     { name = "textx-gen-coloring" },
     { name = "textx-jinja" },
-    { name = "textx-lang-questionnaire", directory = "../textx-lang-questionnaire" },
 ]
 
 [package.metadata.requires-dev]
 ci = [
-    { name = "bandit", specifier = "==1.6.2" },
-    { name = "pytest", specifier = "==5.3.2" },
-    { name = "pytest-azurepipelines", specifier = "==0.8.0" },
-    { name = "pytest-cov", specifier = "==2.8.1" },
+    { name = "bandit" },
+    { name = "coverage" },
+    { name = "pytest" },
+    { name = "pytest-azurepipelines" },
+    { name = "pytest-cov" },
 ]
 dbg = [
     { name = "ipython" },
     { name = "pudb" },
 ]
 dev = [
-    { name = "bandit", specifier = "==1.6.2" },
-    { name = "coverage", specifier = "==5.0.1" },
+    { name = "bandit" },
+    { name = "coverage" },
     { name = "ipython" },
     { name = "pudb" },
-    { name = "pytest", specifier = "==5.3.2" },
-    { name = "pytest-cov", specifier = "==2.8.1" },
+    { name = "pytest" },
+    { name = "pytest-cov" },
     { name = "ruff" },
 ]
 test = [
-    { name = "coverage", specifier = "==5.0.1" },
-    { name = "pytest", specifier = "==5.3.2" },
-    { name = "pytest-cov", specifier = "==2.8.1" },
+    { name = "coverage" },
+    { name = "pytest" },
+    { name = "pytest-cov" },
 ]
 
 [[package]]
@@ -2409,32 +2409,12 @@ resolution-markers = [
 ]
 dependencies = [
     { name = "jinja2", version = "3.1.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
-    { name = "textx", version = "4.2.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
+    { name = "textx", version = "4.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/4b/b6/69f47a8a793e65b4b70e8072e4ee00750563caf5bf162b3d7f8d8c8afb3d/textx_jinja-0.4.0.tar.gz", hash = "sha256:ce206224a355abd6dd9c4307c520ce5bbb82acb638c49c2ae2b90f4bff32e5b3", size = 10642, upload-time = "2025-05-08T19:07:56.528Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/48/a8/05cad647ed579623a8b168a17da8850cb42d4307d47a2bfe0912c60065e9/textx_jinja-0.4.0-py3-none-any.whl", hash = "sha256:411e927af193d11ea559e4c6e849e1e87f403dd44d5114c6b4944b867fddb2a2", size = 5432, upload-time = "2025-05-08T19:07:54.654Z" },
 ]
-
-[[package]]
-name = "textx-lang-questionnaire"
-version = "0.2.0"
-source = { directory = "../textx-lang-questionnaire" }
-dependencies = [
-    { name = "textx", version = "3.1.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.8'" },
-    { name = "textx", version = "4.2.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "coverage", marker = "extra == 'test'" },
-    { name = "coveralls", marker = "extra == 'test'" },
-    { name = "flake8", marker = "extra == 'test'" },
-    { name = "pytest", marker = "extra == 'test'" },
-    { name = "textx" },
-    { name = "twine", marker = "extra == 'dev'" },
-]
-provides-extras = ["dev", "test"]
 
 [[package]]
 name = "traitlets"

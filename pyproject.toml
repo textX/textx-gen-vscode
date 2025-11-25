@@ -1,6 +1,6 @@
 [project]
 name = "textx-gen-vscode"
-version = "0.2.2"
+version = "0.3.0"
 description = "A VS Code extension generator"
 authors = [
     {name = "Daniel Elero", email = "danixeee@gmail.com"},
